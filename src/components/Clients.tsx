@@ -49,11 +49,9 @@ function VideoCard({ label, src }: { label: string; src: string }) {
 }
 
 export default function Clients() {
-  // 5 left + (2 center cards + 2 videos) + 5 right = 12 cards
+  // 5 left + 1 video (full height) + 5 right = 10 cards + video
   const col1 = [reviews[0], reviews[1], reviews[2], reviews[3], reviews[4]]
-  const center1 = reviews[5]
-  const center2 = reviews[6]
-  const col3 = [reviews[7], reviews[8], reviews[9], reviews[10], reviews[11]]
+  const col3 = [reviews[5], reviews[6], reviews[7], reviews[8], reviews[9]]
 
   return (
     <section className="rv-sec">
@@ -73,12 +71,14 @@ export default function Clients() {
               </defs>
             </svg>
             <strong>4.9</strong>
+            <span className="rv-badge-label">Яндекс услуги</span>
           </span>
           <span className="rv-badge">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="#f5a623">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
             </svg>
             <strong>4.8</strong>
+            <span className="rv-badge-label">Профи.ру</span>
           </span>
         </div>
         <h2 className="rv-headline">Мне доверяют клиенты</h2>
@@ -91,17 +91,11 @@ export default function Clients() {
           {col1.map(r => <Card key={r.id} r={r} />)}
         </div>
 
-        {/* Col 2 — card + video + card + video, all stretch to col1 height */}
+        {/* Col 2 — single video filling full height of side columns */}
         <div className="rv-col rv-col--center">
-          <Card r={center1} />
           <VideoCard
             label="Отзыв клиента"
             src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=500&h=700&fit=crop&crop=face"
-          />
-          <Card r={center2} />
-          <VideoCard
-            label="О работе с дизайнером"
-            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&h=700&fit=crop&crop=face"
           />
         </div>
 
@@ -109,6 +103,7 @@ export default function Clients() {
         <div className="rv-col">
           {col3.map(r => r && <Card key={r.id} r={r} />)}
         </div>
+
       </div>
     </section>
   )

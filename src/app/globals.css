@@ -332,7 +332,7 @@ body.rdy .hero-scroll-cue{opacity:1}
    ABOUT — full-screen dark (dkm-folio style)
 ══════════════════════════════════════ */
 .about-sec{
-  background:var(--dark);color:var(--bg);
+  background:#fff;color:var(--dark);
   border-radius:var(--r) var(--r) 0 0;
   overflow:hidden;
 }
@@ -354,7 +354,7 @@ body.rdy .hero-scroll-cue{opacity:1}
 .about-tge{
   font-size:clamp(39px,6.7vw,98px);
   font-weight:500;letter-spacing:-.03em;line-height:1.04;
-  color:rgba(240,237,232,.92);
+  color:var(--dark);
   max-width:clamp(480px,56%,860px);
 }
 @keyframes tge-word{from{opacity:0;filter:blur(8px);}to{opacity:1;filter:blur(0px);}}
@@ -363,9 +363,9 @@ body.rdy .hero-scroll-cue{opacity:1}
 .about-link{
   display:inline-block;margin-top:18px;
   font-size:clamp(12px,.85vw,14px);
-  color:rgba(240,237,232,.4);transition:color .3s;
+  color:rgba(13,13,13,.45);transition:color .3s;
 }
-.about-link:hover{color:rgba(240,237,232,.8)}
+.about-link:hover{color:var(--dark)}
 .about-photos{
   display:flex;align-items:flex-end;gap:10px;flex-shrink:0;
 }
@@ -388,7 +388,7 @@ body.rdy .hero-scroll-cue{opacity:1}
    REVIEWS — Awesomic reference (exact)
 ══════════════════════════════════════ */
 .rv-sec{
-  background:#fff;
+  background:var(--bg);
   padding:clamp(56px,7vh,88px) var(--pad);
 }
 .rv-inner{
@@ -406,7 +406,10 @@ body.rdy .hero-scroll-cue{opacity:1}
 .rv-badge{
   display:flex;align-items:center;gap:5px;
   font-size:13px;font-weight:600;color:#111;
+  background:#fff;border:1px solid #e8e3dc;
+  padding:4px 10px;border-radius:20px;
 }
+.rv-badge-label{font-size:11px;font-weight:400;color:#888;margin-left:2px}
 .rv-headline{
   font-size:clamp(22px,3.2vw,44px);
   font-weight:700;letter-spacing:-.03em;color:#111;
@@ -423,8 +426,9 @@ body.rdy .hero-scroll-cue{opacity:1}
 @media(max-width:560px){.rv-grid{grid-template-columns:1fr}}
 
 .rv-col{display:flex;flex-direction:column;gap:10px}
-/* center column: card, video, card, video — videos share remaining height equally */
-.rv-col--center{display:grid;grid-template-rows:auto 1fr auto 1fr;gap:10px}
+/* center column — single video fills full height of side columns */
+.rv-col--center{display:flex;flex-direction:column}
+.rv-col--center .rv-video-card{flex:1;min-height:500px}
 
 /* Card */
 .rv-card{
@@ -501,7 +505,7 @@ body.rdy .hero-scroll-cue{opacity:1}
 ══════════════════════════════════════ */
 .blog-sec{
   background:var(--dark);
-  padding:0 var(--pad) clamp(60px,8vh,100px);
+  padding:clamp(56px,7vh,88px) var(--pad) clamp(60px,8vh,100px);
 }
 .blog-bar{
   display:flex;justify-content:space-between;align-items:baseline;
