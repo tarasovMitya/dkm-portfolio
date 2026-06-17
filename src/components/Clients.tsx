@@ -32,23 +32,40 @@ function Card({ r }: { r: (typeof reviews)[0] }) {
   )
 }
 
+function VideoCard({ label, src }: { label: string; src: string }) {
+  return (
+    <div className="rv-video-card">
+      <img src={src} alt={label} loading="lazy" />
+      <div className="rv-video-overlay">
+        <div className="rv-video-play">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </div>
+        <span className="rv-video-label">{label}</span>
+      </div>
+    </div>
+  )
+}
+
 export default function Clients() {
-  const col1 = [reviews[0], reviews[1], reviews[2], reviews[3]]
-  const col2top = [reviews[4]]
-  const col3 = [reviews[5], reviews[6], reviews[7], reviews[8]]
+  // 5 left + (2 center cards + 2 videos) + 5 right = 12 cards
+  const col1 = [reviews[0], reviews[1], reviews[2], reviews[3], reviews[4]]
+  const center1 = reviews[5]
+  const center2 = reviews[6]
+  const col3 = [reviews[7], reviews[8], reviews[9], reviews[10], reviews[11]]
 
   return (
     <section className="rv-sec">
-      <div className="rv-inner">
       {/* Header */}
       <div className="rv-header reveal">
         <div className="rv-badges">
           <span className="rv-badge">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
               <circle cx="12" cy="12" r="10" fill="#EA4335"/>
-              <circle cx="12" cy="12" r="10" fill="url(#ggrad)"/>
+              <circle cx="12" cy="12" r="10" fill="url(#gg2)"/>
               <defs>
-                <radialGradient id="ggrad" cx="30%" cy="30%">
+                <radialGradient id="gg2" cx="30%" cy="30%">
                   <stop offset="0%" stopColor="#FBBC05"/>
                   <stop offset="50%" stopColor="#EA4335"/>
                   <stop offset="100%" stopColor="#4285F4"/>
@@ -67,40 +84,31 @@ export default function Clients() {
         <h2 className="rv-headline">Мне доверяют клиенты</h2>
       </div>
 
-      {/* 3-column masonry */}
+      {/* 3-column masonry — full section width */}
       <div className="rv-grid">
-        {/* Col 1 — all text cards */}
+        {/* Col 1 — 5 cards */}
         <div className="rv-col">
           {col1.map(r => <Card key={r.id} r={r} />)}
         </div>
 
-        {/* Col 2 — card + tall video (stretches to match col1 height) */}
+        {/* Col 2 — card + video + card + video, all stretch to col1 height */}
         <div className="rv-col rv-col--center">
-          {col2top.map(r => <Card key={r.id} r={r} />)}
-
-          {/* Video card */}
-          <div className="rv-video-card">
-            <div className="rv-video-overlay">
-              <div className="rv-video-play">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </div>
-              <span className="rv-video-label">Отзыв клиента</span>
-            </div>
-            <img
-              src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=500&h=700&fit=crop&crop=face"
-              alt="Видео-отзыв"
-              loading="lazy"
-            />
-          </div>
+          <Card r={center1} />
+          <VideoCard
+            label="Отзыв клиента"
+            src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=500&h=700&fit=crop&crop=face"
+          />
+          <Card r={center2} />
+          <VideoCard
+            label="О работе с дизайнером"
+            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&h=700&fit=crop&crop=face"
+          />
         </div>
 
-        {/* Col 3 — all text cards */}
+        {/* Col 3 — 5 cards */}
         <div className="rv-col">
           {col3.map(r => r && <Card key={r.id} r={r} />)}
         </div>
-      </div>
       </div>
     </section>
   )
