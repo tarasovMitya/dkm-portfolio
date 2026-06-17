@@ -335,7 +335,7 @@ body.rdy .hero-scroll-cue{opacity:1}
   overflow:hidden;
 }
 .about-inner{
-  min-height:100vh;
+  min-height:60vh;
   display:flex;flex-direction:column;
   justify-content:flex-end;
   padding:var(--pad);
@@ -348,10 +348,9 @@ body.rdy .hero-scroll-cue{opacity:1}
 }
 .about-bottom-left{flex:1;min-width:0}
 .about-tge{
-  font-size:clamp(28px,4.8vw,70px);
-  font-weight:500;letter-spacing:-.03em;line-height:1.05;
+  font-size:clamp(39px,6.7vw,98px);
+  font-weight:500;letter-spacing:-.03em;line-height:1.04;
   color:rgba(240,237,232,.92);
-  /* no max-width — fills available width, wraps in 3 lines naturally */
 }
 @keyframes tge-word{from{opacity:0;filter:blur(8px);}to{opacity:1;filter:blur(0px);}}
 .tge-word{display:inline-block;opacity:0}
@@ -376,7 +375,7 @@ body.rdy .hero-scroll-cue{opacity:1}
 .about-circle img,.about-rect img{width:100%;height:100%;object-fit:cover}
 @media(max-width:680px){
   .about-photos{display:none}
-  .about-tge{font-size:clamp(26px,7.5vw,48px)}
+  .about-tge{font-size:clamp(32px,8vw,60px)}
 }
 
 /* ══════════════════════════════════════
@@ -412,12 +411,14 @@ body.rdy .hero-scroll-cue{opacity:1}
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:10px;
-  align-items:start;
+  align-items:stretch;
 }
 @media(max-width:860px){.rv-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.rv-grid{grid-template-columns:1fr}}
 
 .rv-col{display:flex;flex-direction:column;gap:10px}
+/* center column: card takes auto, video takes remaining height */
+.rv-col--center{display:grid;grid-template-rows:auto 1fr;gap:10px}
 
 /* Card */
 .rv-card{
@@ -451,15 +452,17 @@ body.rdy .hero-scroll-cue{opacity:1}
 }
 .rv-hl{color:#f5a623;font-weight:500}
 
-/* Video card in center column */
+/* Video card in center column — fills remaining grid row */
 .rv-video-card{
   border-radius:14px;overflow:hidden;
   position:relative;
-  aspect-ratio:5/7;
+  /* no aspect-ratio: height is driven by grid-row stretch */
+  min-height:340px;
   border:1px solid #ebebeb;
   cursor:pointer;
 }
 .rv-video-card img{
+  position:absolute;inset:0;
   width:100%;height:100%;object-fit:cover;
   display:block;
 }

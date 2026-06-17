@@ -74,8 +74,8 @@ export default function Clients() {
           {col1.map(r => <Card key={r.id} r={r} />)}
         </div>
 
-        {/* Col 2 — card + tall video + card */}
-        <div className="rv-col">
+        {/* Col 2 — card + tall video (stretches to match col1 height) */}
+        <div className="rv-col rv-col--center">
           {col2top.map(r => <Card key={r.id} r={r} />)}
 
           {/* Video card */}
