@@ -36,10 +36,11 @@ export default function AnimationEngine() {
 
     /* ── Header scroll state ──────────────────────── */
     function initHeader() {
-      const h = document.querySelector('.site-header')
+      const h = document.querySelector('.site-header') as HTMLElement | null
       if (!h) return
+      const header = h
       function update(scrollY?: number) {
-        h.classList.toggle('is-scrolled', (scrollY ?? window.scrollY) > 1)
+        header.classList.toggle('is-scrolled', (scrollY ?? window.scrollY) > 1)
       }
       if (lenisInstance) {
         lenisInstance.on('scroll', (e: any) => update(e.scroll))
