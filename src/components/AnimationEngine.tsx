@@ -102,17 +102,21 @@ export default function AnimationEngine() {
       const leftEdge = VW * 0.3545
       const rightEdge = VW * 0.6614
       const cardH = VH * 0.288
-      const gap = 16
+      const gap = 20  // gap between right-column cards
 
       const c0w = mosaicCards[0]?.offsetWidth || VW * 0.302
       const c1w = mosaicCards[1]?.offsetWidth || VW * 0.193
-      const c2w = mosaicCards[2]?.offsetWidth || VW * 0.193
-      const c3w = mosaicCards[3]?.offsetWidth || VW * 0.302
+      const c2w = mosaicCards[2]?.offsetWidth || VW * 0.224
+      const c3w = mosaicCards[3]?.offsetWidth || VW * 0.342
+
+      // Use actual rendered height for right column cards
+      const c2h = mosaicCards[2]?.offsetHeight || VH * 0.182
+      const c3h = mosaicCards[3]?.offsetHeight || VH * 0.270
 
       const y0 = baseY + VH * 0.022 + 120
       const y1 = y0 + cardH + gap
       const y2 = baseY - VH * 0.342 + 300
-      const y3 = y2 + cardH + gap
+      const y3 = y2 + c2h + gap
 
       mosaicFinalPos = [
         { x: leftEdge  - c0w - 40, y: y0 },

@@ -172,8 +172,10 @@ body.rdy .hero-scroll-cue{opacity:1}
 .mc:hover .mc-label{opacity:1}
 .mc-0{width:clamp(260px,36vw,520px);height:clamp(190px,26vw,380px);z-index:4}
 .mc-1{width:clamp(150px,18vw,260px);height:clamp(110px,14vw,200px);z-index:3}
-.mc-2{width:clamp(130px,16vw,240px);height:clamp(100px,13vw,186px);z-index:3}
-.mc-3{width:clamp(160px,19vw,280px);height:clamp(120px,15vw,220px);z-index:3}
+/* mc-2: SWC.Capital — +40% */
+.mc-2{width:clamp(182px,22.4vw,336px);height:clamp(140px,18.2vw,260px);z-index:3}
+/* mc-3: slot-home.ru — +80% */
+.mc-3{width:clamp(288px,34.2vw,504px);height:clamp(216px,27vw,396px);z-index:3}
 @media(max-width:860px){.mosaic-stage{display:none}}
 
 /* ══════════════════════════════════════
@@ -351,6 +353,7 @@ body.rdy .hero-scroll-cue{opacity:1}
   font-size:clamp(39px,6.7vw,98px);
   font-weight:500;letter-spacing:-.03em;line-height:1.04;
   color:rgba(240,237,232,.92);
+  max-width:clamp(480px,56%,860px);
 }
 @keyframes tge-word{from{opacity:0;filter:blur(8px);}to{opacity:1;filter:blur(0px);}}
 .tge-word{display:inline-block;opacity:0}
@@ -369,7 +372,7 @@ body.rdy .hero-scroll-cue{opacity:1}
   border-radius:50%;overflow:hidden;flex-shrink:0;
 }
 .about-rect{
-  width:clamp(168px,19.6vw,280px);height:clamp(280px,36vw,504px);
+  width:clamp(168px,19.6vw,280px);height:clamp(392px,50vw,706px);
   border-radius:12px;overflow:hidden;
 }
 .about-circle img,.about-rect img{width:100%;height:100%;object-fit:cover}

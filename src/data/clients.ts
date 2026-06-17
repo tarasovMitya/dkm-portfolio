@@ -81,4 +81,13 @@ export const reviews: Review[] = [
     avatar: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=96&h=96&fit=crop&crop=face',
     highlight: 'понимание бизнеса',
   },
+  {
+    id: 9,
+    name: 'Роман Захаров',
+    role: 'CEO',
+    company: 'Fintech Labs',
+    text: 'Работали над дизайном мобильного приложения. Результат превзошёл ожидания — пользователи отмечают простоту и красоту интерфейса. Буду обращаться ещё.',
+    avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=96&h=96&fit=crop&crop=face',
+    highlight: 'простоту и красоту интерфейса',
+  },
 ]

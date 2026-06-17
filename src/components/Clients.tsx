@@ -35,7 +35,7 @@ function Card({ r }: { r: (typeof reviews)[0] }) {
 export default function Clients() {
   const col1 = [reviews[0], reviews[1], reviews[2], reviews[3]]
   const col2top = [reviews[4]]
-  const col3 = [reviews[5], reviews[6], reviews[7]]
+  const col3 = [reviews[5], reviews[6], reviews[7], reviews[8]]
 
   return (
     <section className="rv-sec">
