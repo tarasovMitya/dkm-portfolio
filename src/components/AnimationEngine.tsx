@@ -170,23 +170,13 @@ export default function AnimationEngine() {
       if (!bg) return
       const v = document.createElement('video')
       v.src = 'https://dkm-folio.ru/wp-content/uploads/covers/hero_bg.mp4'
-      v.autoplay = true; v.loop = true; v.muted = true; v.preload = 'metadata'
+      v.autoplay = true; v.loop = true; v.muted = true; v.playsInline = true
       v.setAttribute('playsinline', '')
-      v.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;'
+      v.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0;transition:opacity .6s ease;'
       bg.style.backgroundImage = 'none'
       bg.style.background = '#111'
       bg.appendChild(v)
-
-      // capture first frame as poster so thumbnail = real video frame
-      v.addEventListener('loadeddata', () => {
-        try {
-          const canvas = document.createElement('canvas')
-          canvas.width = v.videoWidth || 1280
-          canvas.height = v.videoHeight || 720
-          canvas.getContext('2d')?.drawImage(v, 0, 0, canvas.width, canvas.height)
-          v.setAttribute('poster', canvas.toDataURL('image/jpeg', 0.85))
-        } catch {}
-      }, { once: true })
+      v.addEventListener('canplay', () => { v.style.opacity = '1' }, { once: true })
     }
 
     /* ── Hero text entrance ───────────────────────── */
