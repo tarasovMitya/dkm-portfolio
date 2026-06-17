@@ -249,7 +249,7 @@ export default function AnimationEngine() {
       const cards = Array.from(document.querySelectorAll<HTMLElement>('.proj-stack-card'))
       if (!cards.length) return
 
-      const ITEM_DISTANCE   = 100
+      const ITEM_DISTANCE   = 16
       const ITEM_SCALE      = 0.03
       const ITEM_STACK_DIST = 30
       const STACK_POS_PCT   = 0.20
