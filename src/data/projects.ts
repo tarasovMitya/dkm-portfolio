@@ -21,7 +21,7 @@ export const projects: Project[] = [
     tags: ['SaaS', 'Web'],
     description:
       'SaaS-платформа для автоматического сбора и квалификации лидов из Яндекс Карт, OpenStreetMap и других источников. Добавляет контакты в CRM — чтобы команда занималась продажами, а не парсингом.',
-    cover: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1440&h=900&fit=crop&q=80',
+    cover: '/cover_keisy.png',
     link: 'https://leadgen-platform.ru/',
     year: '2024',
     role: 'Product Designer',
@@ -58,7 +58,7 @@ export const projects: Project[] = [
     tags: ['Website', 'Brand'],
     description:
       'Веб-сайт для Sky World Community — социально-венчурной экосистемы, объединяющей инвесторов и предпринимателей для развития устойчивых проектов по всему миру.',
-    cover: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1440&h=900&fit=crop&q=80',
+    cover: '/cover_keisy2.png',
     coverVideo: 'https://dkm-folio.ru/wp-content/uploads/covers/swc_bg.mp4',
     year: '2024',
     role: 'Web Designer',
@@ -75,7 +75,7 @@ export const projects: Project[] = [
     tags: ['Dashboard', 'Web App'],
     description:
       'Дизайн дашборда для маркетплейса бытовых услуг. Три роли — администратор, клиент и исполнитель — каждая со своим сценарием, интерфейсом и логикой взаимодействия.',
-    cover: 'https://images.unsplash.com/photo-1558655146-d09347e92766?w=1440&h=900&fit=crop&q=80',
+    cover: '/cover_slot.png',
     link: 'https://slot-home.ru/',
     year: '2024',
     role: 'UI/UX Designer',

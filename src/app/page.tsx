@@ -4,13 +4,16 @@ import Projects from '@/components/Projects'
 import About from '@/components/About'
 import Process from '@/components/Process'
 import Clients from '@/components/Clients'
+import FAQ from '@/components/FAQ'
 import BlogSection from '@/components/BlogSection'
 import ContactForm from '@/components/ContactForm'
 import AnimationEngine from '@/components/AnimationEngine'
+import Preloader from '@/components/Preloader'
 
 export default function Home() {
   return (
     <>
+      <Preloader />
       <AnimationEngine />
       <Nav />
       <Hero />
@@ -25,6 +28,7 @@ export default function Home() {
       <About />
       <Process />
       <Clients />
+      <FAQ />
       <BlogSection />
       <ContactForm />
     </>

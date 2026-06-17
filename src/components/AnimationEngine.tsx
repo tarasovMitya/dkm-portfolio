@@ -23,6 +23,8 @@ export default function AnimationEngine() {
 
         function raf(time: number) {
           lenisInstance.raf(time)
+          // keep ScrollTrigger in sync with Lenis virtual scroll position
+          if ((window as any).__ST__) (window as any).__ST__.update()
           const id = requestAnimationFrame(raf)
           rafIds.push(id)
         }
@@ -168,15 +170,23 @@ export default function AnimationEngine() {
     function initHeroVideo() {
       const bg = document.querySelector('.hero-bg') as HTMLElement
       if (!bg) return
+      // on mobile (width < 768) skip video — use dark gradient bg only
+      if (VW < 768) {
+        bg.style.background = 'linear-gradient(160deg,#1a1a1a 0%,#0d0d0d 100%)'
+        return
+      }
       const v = document.createElement('video')
       v.src = 'https://dkm-folio.ru/wp-content/uploads/covers/hero_bg.mp4'
-      v.autoplay = true; v.loop = true; v.muted = true; v.playsInline = true
+      v.autoplay = true; v.loop = true; v.muted = true
       v.setAttribute('playsinline', '')
-      v.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0;transition:opacity .6s ease;'
-      bg.style.backgroundImage = 'none'
+      v.setAttribute('muted', '')
+      v.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0;transition:opacity .8s ease;'
       bg.style.background = '#111'
       bg.appendChild(v)
+      // show video as soon as first frame ready
       v.addEventListener('canplay', () => { v.style.opacity = '1' }, { once: true })
+      // force play (some browsers need explicit call after muted)
+      v.play().catch(() => {})
     }
 
     /* ── Hero text entrance ───────────────────────── */
@@ -347,6 +357,76 @@ export default function AnimationEngine() {
       })
     }
 
+    /* ── Stacked sections (Reviews → Blog) ──────────── */
+    function initStackedSections() {
+      import('gsap').then(({ gsap }) => {
+        import('gsap/ScrollTrigger').then(({ ScrollTrigger }) => {
+          gsap.registerPlugin(ScrollTrigger)
+          ;(window as any).__ST__ = ScrollTrigger
+
+          // Sync ScrollTrigger with Lenis
+          if (lenisInstance) {
+            lenisInstance.on('scroll', () => ScrollTrigger.update())
+          }
+          // Disable default scroll listener — Lenis drives position
+          ScrollTrigger.defaults({ scroller: window })
+
+          const rv   = document.querySelector('.rv-sec')   as HTMLElement | null
+          const blog = document.querySelector('.blog-sec') as HTMLElement | null
+          if (!rv || !blog) return
+
+          // Reviews: sticky base layer
+          rv.style.position  = 'sticky'
+          rv.style.top       = '0'
+          rv.style.zIndex    = '1'
+          rv.style.willChange = 'transform, filter'
+          rv.style.transformOrigin = 'center bottom'
+
+          // Blog: sliding card on top
+          blog.style.position   = 'relative'
+          blog.style.zIndex     = '2'
+          blog.style.willChange = 'transform, box-shadow'
+
+          // Initial state: blog starts 80px below natural position
+          gsap.set(blog, { y: 80, borderRadius: '18px 18px 0 0' })
+
+          // ScrollTrigger: starts when blog bottom enters viewport, ends when blog top hits viewport top
+          ScrollTrigger.create({
+            trigger: blog,
+            start: 'top bottom',   // blog bottom-edge enters viewport
+            end: 'top top',        // blog top-edge reaches viewport top
+            scrub: 0.6,
+            onUpdate(self) {
+              const p = self.progress  // 0 → 1
+
+              // Blog lifts up (translateY 80 → 0)
+              gsap.set(blog, { y: 80 * (1 - p) })
+
+              // Shadow: grows as blog overlaps reviews
+              const yOff    = -(10 + 30 * p)
+              const blur    = 30 + 90 * p
+              const opacity = 0.35 * p
+              blog.style.boxShadow = `0 ${yOff.toFixed(1)}px ${blur.toFixed(1)}px rgba(0,0,0,${opacity.toFixed(3)})`
+
+              // Reviews: scale down + dim slightly
+              const scale      = 1 - 0.03 * p
+              const brightness = 1 - 0.08 * p
+              rv.style.transform = `scale(${scale.toFixed(4)})`
+              rv.style.filter    = `brightness(${brightness.toFixed(3)})`
+            },
+            onLeave() {
+              // Blog fully covers reviews — lock final state
+              rv.style.transform = 'scale(0.97)'
+              rv.style.filter    = 'brightness(0.92)'
+            },
+            onEnterBack() {
+              // Restore as user scrolls back up
+            },
+          })
+        })
+      })
+    }
+
     /* ── Boot after Lenis ready ───────────────────── */
     function initAfterLenis() {
       initHeroText()
@@ -362,6 +442,7 @@ export default function AnimationEngine() {
         initHeader()
         initStackCards()
         initAboutTextGenerate()
+        initStackedSections()
       }, 200)
     }
 
