@@ -505,7 +505,7 @@ body.rdy .hero-scroll-cue{opacity:1}
    BLOG  — dark section
 ══════════════════════════════════════ */
 .blog-sec{
-  background:var(--dark);
+  background:var(--muted);
   padding:176px var(--pad) clamp(60px,8vh,100px);
 }
 .blog-bar{
@@ -559,7 +559,7 @@ body.rdy .hero-scroll-cue{opacity:1}
    CTA / CONTACT
 ══════════════════════════════════════ */
 .cta-sec{
-  background:var(--dark);
+  background:var(--muted);
   padding:clamp(56px,9vh,120px) var(--pad) clamp(44px,6vh,80px);
   border-top:1px solid rgba(240,237,232,.06);
 }
