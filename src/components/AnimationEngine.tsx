@@ -174,7 +174,7 @@ export default function AnimationEngine() {
       v.setAttribute('playsinline', '')
       v.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0;transition:opacity .6s ease;'
       bg.style.backgroundImage = 'none'
-      bg.style.background = 'var(--muted, #888)'
+      bg.style.background = '#111'
       bg.appendChild(v)
       v.addEventListener('canplay', () => { v.style.opacity = '1' }, { once: true })
     }

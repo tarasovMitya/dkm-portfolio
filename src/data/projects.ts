@@ -21,7 +21,7 @@ export const projects: Project[] = [
     tags: ['SaaS', 'Web'],
     description:
       'SaaS-платформа для автоматического сбора и квалификации лидов из Яндекс Карт, OpenStreetMap и других источников. Добавляет контакты в CRM — чтобы команда занималась продажами, а не парсингом.',
-    cover: 'https://image.thum.io/get/width/1440/crop/900/https://leadgen-platform.ru/',
+    cover: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1440&h=900&fit=crop&q=80',
     link: 'https://leadgen-platform.ru/',
     year: '2024',
     role: 'Product Designer',
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     tags: ['Brand', 'НКО'],
     description:
       'Фирменный стиль и визуальная система для НКО EcoPulse — организации, которая продвигает экологичные технологии и устойчивое развитие. Логотип, гайдлайн, носители.',
-    cover: 'https://dkm-folio.ru/wp-content/uploads/covers/cover_ecopulse.png',
+    cover: '/cover_ecopulse.png',
     year: '2024',
     role: 'Brand Designer',
     challenge:
@@ -58,7 +58,7 @@ export const projects: Project[] = [
     tags: ['Website', 'Brand'],
     description:
       'Веб-сайт для Sky World Community — социально-венчурной экосистемы, объединяющей инвесторов и предпринимателей для развития устойчивых проектов по всему миру.',
-    cover: 'https://dkm-folio.ru/wp-content/uploads/covers/swc_logo.svg',
+    cover: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1440&h=900&fit=crop&q=80',
     coverVideo: 'https://dkm-folio.ru/wp-content/uploads/covers/swc_bg.mp4',
     year: '2024',
     role: 'Web Designer',
@@ -75,7 +75,7 @@ export const projects: Project[] = [
     tags: ['Dashboard', 'Web App'],
     description:
       'Дизайн дашборда для маркетплейса бытовых услуг. Три роли — администратор, клиент и исполнитель — каждая со своим сценарием, интерфейсом и логикой взаимодействия.',
-    cover: 'https://image.thum.io/get/width/1440/crop/900/https://slot-home.ru/',
+    cover: 'https://images.unsplash.com/photo-1558655146-d09347e92766?w=1440&h=900&fit=crop&q=80',
     link: 'https://slot-home.ru/',
     year: '2024',
     role: 'UI/UX Designer',

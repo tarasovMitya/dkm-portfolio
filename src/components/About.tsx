@@ -17,14 +17,14 @@ export default function About() {
           <div className="about-photos">
             <div className="about-circle">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=160&h=160&fit=crop&crop=face"
+                src="/about_circle.jpg"
                 alt="Дмитрий Кищенко"
                 loading="lazy"
               />
             </div>
             <div className="about-rect">
               <img
-                src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=600&fit=crop&crop=top"
+                src="/about_rect.jpg"
                 alt="Дмитрий Кищенко"
                 loading="lazy"
               />
