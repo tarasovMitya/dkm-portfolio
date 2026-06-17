@@ -563,7 +563,11 @@ body.rdy .hero-scroll-cue{opacity:1}
   gap:0 clamp(24px,4vw,64px);
   align-items:start;
 }
-@media(max-width:760px){.faq-grid{grid-template-columns:1fr}}
+@media(max-width:760px){
+  .faq-grid{grid-template-columns:1fr}
+  /* col1 has 4 items, col2 has 4 — show only first item of col2 (= 5th total) */
+  .faq-col:last-child .faq-item:nth-child(n+2){display:none}
+}
 .faq-item{
   border-bottom:1px solid var(--line);
 }
