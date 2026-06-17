@@ -1,34 +1,24 @@
 import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
-import Marquee from '@/components/Marquee'
 import Projects from '@/components/Projects'
 import About from '@/components/About'
 import Process from '@/components/Process'
 import Clients from '@/components/Clients'
 import BlogSection from '@/components/BlogSection'
 import ContactForm from '@/components/ContactForm'
-import Footer from '@/components/Footer'
-import ScrollRevealProvider from '@/components/ScrollRevealProvider'
+import AnimationEngine from '@/components/AnimationEngine'
 
 export default function Home() {
   return (
-    <ScrollRevealProvider>
+    <>
+      <AnimationEngine />
       <Nav />
       <Hero />
-      <Marquee />
 
       {/* Tagline */}
-      <section className="tagline">
-        <div className="container">
-          <div className="tagline__inner">
-            <h2 className="tagline__left reveal">
-              Создаю цифровые продукты, которые работают и запоминаются
-            </h2>
-            <p className="tagline__right reveal reveal-delay-1">
-              Дизайнер с фокусом на UX-стратегию, визуальный язык и продуктовое мышление
-            </p>
-          </div>
-        </div>
+      <section className="tagline-sec" id="tagline">
+        <h2>Создаю цифровые продукты, которые работают и запоминаются</h2>
+        <p>Дизайнер с фокусом на UX-стратегию, визуальный язык и продуктовое мышление</p>
       </section>
 
       <Projects />
@@ -37,7 +27,6 @@ export default function Home() {
       <Clients />
       <BlogSection />
       <ContactForm />
-      <Footer />
-    </ScrollRevealProvider>
+    </>
   )
 }

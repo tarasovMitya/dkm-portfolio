@@ -2,31 +2,27 @@ import Link from 'next/link'
 
 export default function About() {
   return (
-    <section className="about" id="about">
-      <div className="container">
-        <div className="about__inner">
-          <div className="about__text reveal">
-            <span className="about__eyebrow">Обо мне</span>
-            <h2 className="about__headline">
+    <section className="about-sec" id="about">
+      <div className="about-hero">
+        <div className="about-hero-flex">
+          <div className="about-hero-heading">
+            <h2 className="about-tge">
               7 лет помогаю бизнесам расти через дизайн, который работает
             </h2>
-            <p className="about__body">
-              Дизайнер с фокусом на UX-стратегию, визуальный язык и продуктовое мышление.
-              Работаю с командами от стартапов до устоявшихся брендов — от первого брифа
-              до готового продукта в продакшне.
-            </p>
-            <Link href="/#contact" className="about__cta">Есть проект? Давайте работать →</Link>
+            <Link href="/#contact" className="about-cta-link">
+              Есть проект? Давайте работать →
+            </Link>
           </div>
 
-          <div className="about__images reveal reveal-delay-1">
-            <div className="about__img-wrap">
+          <div className="about-hero-photos">
+            <div className="about-hero-circle">
               <img
                 src="https://dkm-folio.ru/wp-content/uploads/covers/about_circle.jpg"
-                alt="О дизайнере"
+                alt="Дмитрий Кищенко"
                 loading="lazy"
               />
             </div>
-            <div className="about__img-wrap">
+            <div className="about-hero-rect">
               <img
                 src="https://dkm-folio.ru/wp-content/uploads/covers/about_rect.jpg"
                 alt="Рабочий процесс"
@@ -35,6 +31,15 @@ export default function About() {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="about-lead-row reveal">
+        <p className="about-lead">
+          Дизайнер с фокусом на UX-стратегию, визуальный язык и продуктовое мышление.
+          Работаю с командами от стартапов до устоявшихся брендов — от первого брифа
+          до готового продукта в продакшне. Каждый проект начинается с погружения
+          в бизнес-задачу, а не с макетов.
+        </p>
       </div>
     </section>
   )
