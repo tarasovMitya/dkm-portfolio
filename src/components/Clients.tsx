@@ -33,62 +33,74 @@ function Card({ r }: { r: (typeof reviews)[0] }) {
 }
 
 export default function Clients() {
-  const col1 = [reviews[0], reviews[1], reviews[2]]
-  const col2 = [reviews[3], reviews[4]]
+  const col1 = [reviews[0], reviews[1], reviews[2], reviews[3]]
+  const col2top = [reviews[4]]
   const col3 = [reviews[5], reviews[6], reviews[7]]
 
   return (
     <section className="rv-sec">
+      <div className="rv-inner">
+      {/* Header */}
       <div className="rv-header reveal">
         <div className="rv-badges">
           <span className="rv-badge">
-            <svg width="13" height="13" viewBox="0 0 24 24">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" fill="#EA4335"/>
+              <circle cx="12" cy="12" r="10" fill="url(#ggrad)"/>
               <defs>
-                <linearGradient id="gg" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%"   stopColor="#4285F4"/>
-                  <stop offset="33%"  stopColor="#EA4335"/>
-                  <stop offset="66%"  stopColor="#FBBC05"/>
-                  <stop offset="100%" stopColor="#34A853"/>
-                </linearGradient>
+                <radialGradient id="ggrad" cx="30%" cy="30%">
+                  <stop offset="0%" stopColor="#FBBC05"/>
+                  <stop offset="50%" stopColor="#EA4335"/>
+                  <stop offset="100%" stopColor="#4285F4"/>
+                </radialGradient>
               </defs>
-              <circle cx="12" cy="12" r="10" fill="url(#gg)"/>
-              <path d="M12 7v5l3 3" stroke="#fff" strokeWidth="2" strokeLinecap="round" fill="none"/>
             </svg>
-            4.9
+            <strong>4.9</strong>
           </span>
           <span className="rv-badge">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="#f5a623">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
             </svg>
-            4.8
+            <strong>4.8</strong>
           </span>
         </div>
         <h2 className="rv-headline">Мне доверяют клиенты</h2>
       </div>
 
+      {/* 3-column masonry */}
       <div className="rv-grid">
-        {/* Колонка 1 */}
+        {/* Col 1 — all text cards */}
         <div className="rv-col">
           {col1.map(r => <Card key={r.id} r={r} />)}
         </div>
 
-        {/* Колонка 2 — с фото между карточек */}
+        {/* Col 2 — card + tall video + card */}
         <div className="rv-col">
-          <Card r={col2[0]} />
-          <div className="rv-photo">
+          {col2top.map(r => <Card key={r.id} r={r} />)}
+
+          {/* Video card */}
+          <div className="rv-video-card">
+            <div className="rv-video-overlay">
+              <div className="rv-video-play">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
+              <span className="rv-video-label">Отзыв клиента</span>
+            </div>
             <img
-              src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&h=760&fit=crop&crop=face"
-              alt="Кищенко Дмитрий"
+              src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=500&h=700&fit=crop&crop=face"
+              alt="Видео-отзыв"
               loading="lazy"
             />
           </div>
-          {col2[1] && <Card r={col2[1]} />}
         </div>
 
-        {/* Колонка 3 */}
+        {/* Col 3 — all text cards */}
         <div className="rv-col">
           {col3.map(r => r && <Card key={r.id} r={r} />)}
         </div>
+      </div>
       </div>
     </section>
   )

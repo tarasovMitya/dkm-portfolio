@@ -7,9 +7,7 @@ export default function About() {
         <div className="about-bottom">
           <div className="about-bottom-left">
             <h2 className="about-tge">
-              7 лет помогаю бизнесам<br />
-              расти через дизайн,<br />
-              который работает
+              7 лет помогаю бизнесам расти через дизайн, который работает
             </h2>
             <Link href="/#contact" className="about-link">
               Есть проект? Давайте работать →
@@ -26,7 +24,7 @@ export default function About() {
             </div>
             <div className="about-rect">
               <img
-                src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=320&h=480&fit=crop&crop=top"
+                src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=600&fit=crop&crop=top"
                 alt="Дмитрий Кищенко"
                 loading="lazy"
               />
