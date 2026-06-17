@@ -655,6 +655,7 @@ body.rdy .hero-scroll-cue{opacity:1}
 .cta-sec{
   background:var(--dark);
   padding:clamp(56px,9vh,120px) var(--pad) clamp(44px,6vh,80px);
+  position:relative;z-index:10;
   border-top:1px solid rgba(240,237,232,.06);
 }
 .cta-kicker{

@@ -371,56 +371,50 @@ export default function AnimationEngine() {
           // Disable default scroll listener — Lenis drives position
           ScrollTrigger.defaults({ scroller: window })
 
-          const rv   = document.querySelector('.rv-sec')   as HTMLElement | null
+          const faq  = document.querySelector('.faq-sec')  as HTMLElement | null
           const blog = document.querySelector('.blog-sec') as HTMLElement | null
-          if (!rv || !blog) return
+          const cta  = document.querySelector('.cta-sec')  as HTMLElement | null
+          if (!faq || !blog) return
 
-          // Reviews: sticky base layer
-          rv.style.position  = 'sticky'
-          rv.style.top       = '0'
-          rv.style.zIndex    = '1'
-          rv.style.willChange = 'transform, filter'
-          rv.style.transformOrigin = 'center bottom'
+          // FAQ: sticky base layer — gets covered by Blog
+          faq.style.position       = 'sticky'
+          faq.style.top            = '0'
+          faq.style.zIndex         = '1'
+          faq.style.willChange     = 'transform, filter'
+          faq.style.transformOrigin = 'center bottom'
 
-          // Blog: sliding card on top
+          // Blog: slides over FAQ
           blog.style.position   = 'relative'
           blog.style.zIndex     = '2'
           blog.style.willChange = 'transform, box-shadow'
 
-          // Initial state: blog starts 80px below natural position
+          // CTA (Давайте работать): always on top
+          if (cta) { cta.style.position = 'relative'; cta.style.zIndex = '10' }
+
           gsap.set(blog, { y: 80, borderRadius: '18px 18px 0 0' })
 
-          // ScrollTrigger: starts when blog bottom enters viewport, ends when blog top hits viewport top
           ScrollTrigger.create({
             trigger: blog,
-            start: 'top bottom',   // blog bottom-edge enters viewport
-            end: 'top top',        // blog top-edge reaches viewport top
+            start: 'top bottom',
+            end: 'top top',
             scrub: 0.6,
             onUpdate(self) {
-              const p = self.progress  // 0 → 1
+              const p = self.progress
 
-              // Blog lifts up (translateY 80 → 0)
               gsap.set(blog, { y: 80 * (1 - p) })
 
-              // Shadow: grows as blog overlaps reviews
               const yOff    = -(10 + 30 * p)
               const blur    = 30 + 90 * p
               const opacity = 0.35 * p
               blog.style.boxShadow = `0 ${yOff.toFixed(1)}px ${blur.toFixed(1)}px rgba(0,0,0,${opacity.toFixed(3)})`
 
-              // Reviews: scale down + dim slightly
-              const scale      = 1 - 0.03 * p
-              const brightness = 1 - 0.08 * p
-              rv.style.transform = `scale(${scale.toFixed(4)})`
-              rv.style.filter    = `brightness(${brightness.toFixed(3)})`
+              // FAQ scales down + dims as Blog covers it
+              faq.style.transform = `scale(${(1 - 0.03 * p).toFixed(4)})`
+              faq.style.filter    = `brightness(${(1 - 0.08 * p).toFixed(3)})`
             },
             onLeave() {
-              // Blog fully covers reviews — lock final state
-              rv.style.transform = 'scale(0.97)'
-              rv.style.filter    = 'brightness(0.92)'
-            },
-            onEnterBack() {
-              // Restore as user scrolls back up
+              faq.style.transform = 'scale(0.97)'
+              faq.style.filter    = 'brightness(0.92)'
             },
           })
         })
