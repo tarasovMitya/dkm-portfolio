@@ -131,7 +131,7 @@ export const projects: Project[] = [
     description:
       'Веб-сайт для Sky World Community — социально-венчурной экосистемы, объединяющей инвесторов и предпринимателями для развития устойчивых проектов по всему миру.',
     cover: '',
-    coverVideo: '/video/swc_bg.mp4',
+    coverVideo: 'https://dkm-folio.ru/wp-content/uploads/covers/swc_bg.mp4',
     logo: '/img/swc_logo.svg',
     link: 'https://swc.capital/ru',
     year: '2024',

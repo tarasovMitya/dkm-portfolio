@@ -12,7 +12,7 @@ export default function Hero() {
             preload="auto"
             style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0, transition: 'opacity 0.8s ease', zIndex: 1, pointerEvents: 'none' }}
           >
-            <source src="/video/hero_bg.mp4" type="video/mp4" />
+            <source src="https://dkm-folio.ru/wp-content/uploads/covers/hero_bg.mp4" type="video/mp4" />
           </video>
         </div>
 
@@ -56,7 +56,7 @@ export default function Hero() {
 
         <a className="mc mc-2" href="/projects/swc-capital">
           <video autoPlay loop muted playsInline>
-            <source src="/video/swc_bg.mp4" type="video/mp4" />
+            <source src="https://dkm-folio.ru/wp-content/uploads/covers/swc_bg.mp4" type="video/mp4" />
           </video>
           <div className="mc-logo">
             <img src="/img/swc_logo.svg" alt="" />
