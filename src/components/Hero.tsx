@@ -2,11 +2,18 @@ export default function Hero() {
   return (
     <div className="hero-wrap">
       <div className="hero-sticky" id="hero">
-        <div
-          className="hero-bg"
-          style={{ backgroundImage: "url('https://dkm-folio.ru/wp-content/uploads/2026/06/hero-bg.jpg')" }}
-        >
-          {/* Video injected by AnimationEngine */}
+        <div className="hero-bg" style={{ background: '#111 url(/img/hero_cover.png) center/cover no-repeat' }}>
+          <video
+            id="hero-vid"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0, transition: 'opacity 0.8s ease', zIndex: 1, pointerEvents: 'none' }}
+          >
+            <source src="/video/hero_bg.mp4" type="video/mp4" />
+          </video>
         </div>
 
         <div className="hero-content">
@@ -35,42 +42,30 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Mosaic cards — animated by AnimationEngine */}
+      {/* Mosaic cards — all local assets */}
       <div className="mosaic-stage" aria-hidden="true">
-        <a className="mc mc-0" href="https://leadgen-platform.ru/" target="_blank" rel="noopener">
-          <img
-            src="https://image.thum.io/get/width/1440/crop/900/https://leadgen-platform.ru/"
-            alt="LeadGen Platform"
-            loading="lazy"
-          />
+        <a className="mc mc-0" href="/projects/leadgen-platform">
+          <img src="/cover_keisy.png" alt="LeadGen Platform" loading="lazy" />
           <div className="mc-label">LeadGen Platform · SaaS</div>
         </a>
 
-        <a className="mc mc-1" href="#work">
-          <img
-            src="https://dkm-folio.ru/wp-content/uploads/covers/cover_ecopulse.png"
-            alt="EcoPulse"
-            loading="lazy"
-          />
+        <a className="mc mc-1" href="/projects/ecopulse">
+          <img src="/cover_ecopulse.png" alt="EcoPulse" loading="lazy" />
           <div className="mc-label">EcoPulse · Brand</div>
         </a>
 
-        <a className="mc mc-2" href="https://swc.capital/ru" target="_blank" rel="noopener">
+        <a className="mc mc-2" href="/projects/swc-capital">
           <video autoPlay loop muted playsInline>
-            <source src="https://dkm-folio.ru/wp-content/uploads/covers/swc_bg.mp4" type="video/mp4" />
+            <source src="/video/swc_bg.mp4" type="video/mp4" />
           </video>
           <div className="mc-logo">
-            <img src="https://dkm-folio.ru/wp-content/uploads/covers/swc_logo.svg" alt="" />
+            <img src="/img/swc_logo.svg" alt="" />
           </div>
           <div className="mc-label">SWC.Capital · Website</div>
         </a>
 
-        <a className="mc mc-3" href="https://slot-home.ru/" target="_blank" rel="noopener">
-          <img
-            src="https://image.thum.io/get/width/1440/crop/900/https://slot-home.ru/"
-            alt="slot-home.ru"
-            loading="lazy"
-          />
+        <a className="mc mc-3" href="/projects/slot-home">
+          <img src="/cover_slot.png" alt="slot-home.ru" loading="lazy" />
           <div className="mc-label">slot-home.ru · Dashboard</div>
         </a>
       </div>
