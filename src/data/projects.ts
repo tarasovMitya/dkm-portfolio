@@ -25,6 +25,7 @@ export interface Project {
   description: string
   cover: string
   coverVideo?: string
+  logo?: string
   link?: string
   year: string
   role: string
@@ -129,8 +130,9 @@ export const projects: Project[] = [
     tags: ['Website', 'Brand'],
     description:
       'Веб-сайт для Sky World Community — социально-венчурной экосистемы, объединяющей инвесторов и предпринимателями для развития устойчивых проектов по всему миру.',
-    cover: '/cover_keisy2.png',
+    cover: '',
     coverVideo: '/video/swc_bg.mp4',
+    logo: '/img/swc_logo.svg',
     link: 'https://swc.capital/ru',
     year: '2024',
     role: 'Web Designer',
@@ -152,8 +154,8 @@ export const projects: Project[] = [
       { step: 3, title: 'Проекты', desc: 'Кейсы и результаты' },
       { step: 4, title: 'Контакт', desc: 'Форма для инвесторов и партнёров' },
     ],
-    screens: ['/cover_keisy2.png'],
-    images: ['/cover_keisy2.png'],
+    screens: [],
+    images: [],
   },
   {
     slug: 'slot-home',

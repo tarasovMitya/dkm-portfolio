@@ -19,9 +19,9 @@ export default function Projects() {
                     <video autoPlay loop muted playsInline>
                       <source src={p.coverVideo} type="video/mp4" />
                     </video>
-                    {p.cover && (
+                    {p.logo && (
                       <div className="proj-item-logo">
-                        <img src={p.cover} alt={p.title} />
+                        <img src={p.logo} alt={p.title} />
                       </div>
                     )}
                   </>
