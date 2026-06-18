@@ -45,7 +45,7 @@ export default function Hero() {
       {/* Mosaic cards — all local assets */}
       <div className="mosaic-stage" aria-hidden="true">
         <a className="mc mc-0" href="/projects/leadgen-platform">
-          <img src="/cover_keisy.png" alt="LeadGen Platform" loading="lazy" />
+          <img src="/img/leadgen-cover.jpg" alt="LeadGen Platform" loading="lazy" />
           <div className="mc-label">LeadGen Platform · SaaS</div>
         </a>
 
@@ -65,7 +65,7 @@ export default function Hero() {
         </a>
 
         <a className="mc mc-3" href="/projects/slot-home">
-          <img src="/cover_slot.png" alt="slot-home.ru" loading="lazy" />
+          <img src="/img/slothome_cover.jpg" alt="slot-home.ru" loading="lazy" />
           <div className="mc-label">slot-home.ru · Dashboard</div>
         </a>
       </div>

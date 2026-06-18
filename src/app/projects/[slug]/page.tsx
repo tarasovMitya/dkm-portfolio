@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { projects } from '@/data/projects'
+import ProjectContactForm from '@/components/ProjectContactForm'
 
 interface Props { params: { slug: string } }
 
@@ -176,12 +177,7 @@ export default function ProjectPage({ params }: Props) {
             <h2 className="proj-cta-title">Давайте обсудим ваш проект</h2>
             <p className="proj-cta-sub">Расскажите задачу — предложу решение и назову стоимость</p>
           </div>
-          <form className="proj-cta-form" action="mailto:info@dkm-folio.ru" method="post" encType="text/plain">
-            <input type="text" name="name" placeholder="Ваше имя" className="proj-cta-input" required />
-            <input type="text" name="project" placeholder="Кратко о проекте" className="proj-cta-input" required />
-            <input type="tel" name="phone" placeholder="Телефон или Telegram" className="proj-cta-input" required />
-            <button type="submit" className="proj-cta-btn">Отправить →</button>
-          </form>
+          <ProjectContactForm />
         </div>
       </section>
 

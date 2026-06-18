@@ -45,7 +45,7 @@ export const projects: Project[] = [
     tags: ['SaaS', 'Web'],
     description:
       'SaaS-платформа для автоматического сбора и квалификации лидов из Яндекс Карт, OpenStreetMap и других источников. Добавляет контакты в CRM — чтобы команда занималась продажами, а не парсингом.',
-    cover: '/cover_keisy.png',
+    cover: '/img/leadgen-cover.jpg',
     link: 'https://leadgen-platform.ru/',
     year: '2024',
     role: 'Product Designer',
@@ -78,14 +78,14 @@ export const projects: Project[] = [
       { step: 3, title: 'Получить лиды', desc: 'Контакты с оценкой качества попадают в список' },
       { step: 4, title: 'Передать в CRM', desc: 'Один клик — лид уходит менеджеру на обработку' },
     ],
-    screens: ['/cover_keisy.png', '/cover_keisy2.png'],
+    screens: ['/img/leadgen-cover.jpg', '/cover_keisy.png'],
     testimonial: {
       name: 'Алексей Воронов',
       role: 'CEO',
       company: 'LeadGen Platform',
       text: 'Дмитрий полностью переосмыслил наш продукт. Теперь даже нетехнические пользователи разбираются без онбординга.',
     },
-    images: ['/cover_keisy.png'],
+    images: ['/img/leadgen-cover.jpg'],
   },
   {
     slug: 'ecopulse',
@@ -161,7 +161,7 @@ export const projects: Project[] = [
     tags: ['Dashboard', 'Web App'],
     description:
       'Дизайн дашборда для маркетплейса бытовых услуг. Три роли — администратор, клиент и исполнитель — каждая со своим сценарием, интерфейсом и логикой взаимодействия.',
-    cover: '/cover_slot.png',
+    cover: '/img/slothome_cover.jpg',
     link: 'https://slot-home.ru/',
     year: '2024',
     role: 'UI/UX Designer',
@@ -188,13 +188,13 @@ export const projects: Project[] = [
       { step: 3, title: 'Мастер', desc: 'Получение задания, навигация, отчёт' },
       { step: 4, title: 'Завершение', desc: 'Оценка, оплата, история заказов' },
     ],
-    screens: ['/cover_slot.png'],
+    screens: ['/img/slothome_cover.jpg'],
     testimonial: {
       name: 'Михаил Орлов',
       role: 'Founder',
       company: 'slot-home.ru',
       text: 'Дмитрий разобрался в нашей сложной логике и сделал из неё понятный продукт. Операторы освоили систему за день без инструкций.',
     },
-    images: ['/cover_slot.png'],
+    images: ['/img/slothome_cover.jpg'],
   },
 ]
